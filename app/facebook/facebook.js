@@ -28,10 +28,13 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
 .controller('FacebookCtrl', ['$scope', '$facebook', function($scope,$facebook) {
 
     $scope.isLoggedIn = false;
+
     $scope.login = function(){
         $facebook.login().then(function(){
            $scope.isLoggedIn = true;
            refresh();
+        }).catch(function(e){
+            console.log(e+' has been catched');
         });
     }
 
@@ -45,7 +48,7 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
     function refresh(){
         $facebook.api("/me",{fields: 'email,first_name,last_name,gender'})
         .then(function(response){
-            $scope.welcomeMsg = 'Welcome '+response.name;
+            $scope.welcomeMsg = 'Welcome '+response.first_name +' '+response.last_name;
             $scope.isLoggedIn = true;
             $scope.userInfo = response;
             console.log( $scope.userInfo);
@@ -57,11 +60,3 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
      refresh();
 }]);
 
-/*
-
-                <li>ID: {{userInfo.id}}</li>
-      
-                <li>E-mail: {{userInfo.email}}</li>
-                <li>Gender: {{userInfo.gender}}</li>
-
-            */
