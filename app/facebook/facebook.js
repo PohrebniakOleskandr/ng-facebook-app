@@ -26,7 +26,7 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
 
 
 .controller('FacebookCtrl', ['$scope', '$facebook', function($scope,$facebook) {
-    console.log('hello!');
+    aler.log('hello!');
     $scope.isLoggedIn = false;
     $scope.login = function(){
         $facebook.login().then(function(){
