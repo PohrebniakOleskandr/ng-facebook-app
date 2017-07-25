@@ -31,10 +31,9 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
 
     $scope.login = function(){
         $facebook.login().then(function(){
+           console.log('login test...');
            $scope.isLoggedIn = true;
            refresh();
-        }).catch(function(e){
-            console.log(e+' has been catched');
         });
     }
 
