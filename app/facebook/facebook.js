@@ -54,7 +54,9 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
             console.log($scope.userInfo);
             $facebook.api("/me/picture").then(function(response){
                 $scope.picture = response.data.url;
-                console.log($scope.picture);
+                $facebook.api("me/permissions").then(function(response){
+                    $scope.permissions = response.data;
+                });
             });
         },function(error){
             $scope.welcomeMsg = 'Please, log in';
