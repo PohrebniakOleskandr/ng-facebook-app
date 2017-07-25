@@ -47,6 +47,7 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
             $scope.welcomeMsg = 'Welcome '+response.name;
             $scope.isLoggedIn = true;
             $scope.userInfo = response;
+            console.log( $scope.userInfo);
         },function(error){
             $scope.welcomeMsg = 'Please, log in';
         });
