@@ -9,15 +9,15 @@
         </div>
         <br>
         <br>
-        <div class="well">
+        <div class="well"  ng-if="isLoggedIn == true">
             <h4>User info</h4>
             <ul>
-                <li>ID: SomeID</li>
-                <li>First Name: Johny</li>
-                <li>Last Name: Delucional</li>
-                <li>Email: johny@gmail.com</li>
-                <li>Gender: male</li>
-                <li>Locale: enGB</li>
+                <li>ID: {{userInfo.id}}</li>
+                <li>First Name: {{userInfo.first_name}}</li>
+                <li>First Name: {{userInfo.last_name}}</li>
+                <li>E-mail: {{userInfo.email}}</li>
+                <li>Gender: {{userInfo.gender}}</li>
+                <li>Locale: {{userInfo.locale}</li>
             </ul>
         </div>
         <div class="well">
