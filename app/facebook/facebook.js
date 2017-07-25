@@ -41,9 +41,9 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
            refresh();
         });
     }
-
+   
     function refresh(){
-        $facebook.api("/me").then(function(response){
+        $facebook.api("/me?fields=name,email").then(function(response){
             $scope.welcomeMsg = 'Welcome '+response.name;
             $scope.isLoggedIn = true;
             $scope.userInfo = response;
@@ -55,3 +55,13 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
 
      refresh();
 }]);
+
+/*
+
+FB.api('/me', { locale: 'en_US', fields: 'name, email' },
+  function(response) {
+    console.log(response.email);
+  }
+);
+
+  */
