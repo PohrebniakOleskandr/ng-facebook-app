@@ -43,7 +43,14 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
     }
 
     function refresh(){
-        $facebook.api("/me").then(function(response){
+        $facebook.api("/me", {
+                fields: 'last_name'
+            },function(response) {
+                console.log(response);
+            });
+        
+        /*
+        .then(function(response){
             $scope.welcomeMsg = 'Welcome '+response.name;
             $scope.isLoggedIn = true;
             $scope.userInfo = response;
@@ -51,7 +58,22 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
         },function(error){
             $scope.welcomeMsg = 'Please, log in';
         });
+        */
     }
 
      refresh();
 }]);
+
+/*
+
+FB.api('/me', {
+                fields: 'last_name'
+            }, function(response) {
+                if (!response || response.error) {
+                    deferred.reject('Error occured');
+                } else {
+                    deferred.resolve(response);
+                }
+            });
+
+            */
