@@ -43,7 +43,7 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
     }
 
     function refresh(){
-        $facebook.api("/me",{fields: 'last_name'})
+        $facebook.api("/me",{fields: 'first_name,last_name'})
         .then(function(response){
             $scope.welcomeMsg = 'Welcome '+response.name;
             $scope.isLoggedIn = true;
@@ -59,14 +59,10 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
 
 /*
 
-FB.api('/me', {
-                fields: 'last_name'
-            }, function(response) {
-                if (!response || response.error) {
-                    deferred.reject('Error occured');
-                } else {
-                    deferred.resolve(response);
-                }
-            });
+                <li>ID: {{userInfo.id}}</li>
+                <li>First Name: {{userInfo.first_name}}</li>
+                <li>First Name: {{userInfo.last_name}}</li>
+                <li>E-mail: {{userInfo.email}}</li>
+                <li>Gender: {{userInfo.gender}}</li>
 
             */
