@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-4">
         <h4>{{welcomeMsg}}</h4>
-        <div ng-if="isLoggedIn == false">
+        <div ng-if="isLoggedIn == true">
             <a href="{{userInfo.link}}" target="_blank"><img ng-src="{{picture}}"></a>            
         </div>
         <div ng-if="isLoggedIn == false">
