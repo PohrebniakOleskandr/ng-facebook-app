@@ -56,6 +56,6 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
         });
     }
 
-     refresh();
+     //refresh();
 }]);
 
