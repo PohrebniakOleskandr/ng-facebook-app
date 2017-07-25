@@ -41,15 +41,12 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
            refresh();
         });
     }
-   
+
     function refresh(){
-        $facebook
-            .api('/me')
-            .then(function(response){
+        $facebook.api("/me").then(function(response){
             $scope.welcomeMsg = 'Welcome '+response.name;
             $scope.isLoggedIn = true;
             $scope.userInfo = response;
-            console.log('Change is: ');
             console.log( $scope.userInfo);
         },function(error){
             $scope.welcomeMsg = 'Please, log in';
@@ -58,31 +55,3 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
 
      refresh();
 }]);
-
-
-/*
-
-
-down vote
-$facebookapi('/me?fields=first_name, last_name, picture, email', function(response) {
-    $scope.welcomeMsg = 'Welcome '+response.name;
-    $scope.isLoggedIn = true;
-    console.log(response);
-}, function(error){
-    $scope.welcomeMsg = 'Please, log in';
-});
-
-
-        $facebook
-            .api('/me?fields=id,name,email')
-            .then(function(response){
-            $scope.welcomeMsg = 'Welcome '+response.name;
-            $scope.isLoggedIn = true;
-            $scope.userInfo = response;
-            console.log('Change is: ');
-            console.log( $scope.userInfo);
-        },function(error){
-            $scope.welcomeMsg = 'Please, log in';
-        });
-
-*/
