@@ -30,8 +30,9 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
     $scope.isLoggedIn = false;
 
     $scope.login = function(){
-        $facebook.login().then(function(){
-           console.log('login test 111...');
+        $facebook.login().then(function(response){
+           
+           console.log(response);
            $scope.isLoggedIn = true;
            refresh();
         });
