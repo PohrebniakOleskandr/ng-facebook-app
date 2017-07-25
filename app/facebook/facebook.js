@@ -43,6 +43,32 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
     }
    
     function refresh(){
+        $facebook.api('/me?fields=first_name, last_name, picture, email', function(response) {
+            $scope.welcomeMsg = 'Welcome '+response.name;
+            $scope.isLoggedIn = true;
+            console.log(response);
+        }, function(error){
+            $scope.welcomeMsg = 'Please, log in';
+        });
+    }
+
+     refresh();
+}]);
+
+
+/*
+
+
+down vote
+$facebookapi('/me?fields=first_name, last_name, picture, email', function(response) {
+    $scope.welcomeMsg = 'Welcome '+response.name;
+    $scope.isLoggedIn = true;
+    console.log(response);
+}, function(error){
+    $scope.welcomeMsg = 'Please, log in';
+});
+
+
         $facebook
             .api('/me?fields=id,name,email')
             .then(function(response){
@@ -54,9 +80,5 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
         },function(error){
             $scope.welcomeMsg = 'Please, log in';
         });
-    }
 
-     refresh();
-}]);
-
-
+*/
