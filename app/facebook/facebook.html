@@ -4,6 +4,7 @@
         <div ng-if="isLoggedIn == true">
             <a href="{{userInfo.link}}" target="_blank"><img ng-src="{{picture}}"></a>            
         </div>
+        <br>
         <div ng-if="isLoggedIn == false">
             <button type="button" class="btn btn-default" ng-click="login()">Log in</button>
         </div>
