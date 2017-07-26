@@ -66,10 +66,11 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
     }
     
     $scope.postStatus = function(body){
-  
+    $scope.postStatus = function(body){
+        console.log(body);
         $facebook.api('me/feed','post',{message:body}).then(function(response){
             $scope.msg = 'Thanks for posting';
-            console.log(response);
+            //console.log(response);
             refresh();
         });
     }
