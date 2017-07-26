@@ -66,7 +66,15 @@ angular.module('ngSocial.facebook', ['ngRoute','ngFacebook'])
             $scope.welcomeMsg = 'Please, log in';
         });
     }
+    
+    $scope.postStatus = function(){
+        var body = $scope.body;
+        $facebook.api('me/feed','post',{message:body}).then(function(response){
+            $scope.msg = 'Thanks for posting';
+            refresh();
+        });
+    }
 
-     refresh();
+    refresh();
 }]);
 
